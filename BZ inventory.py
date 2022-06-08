@@ -18,15 +18,18 @@ path = r'C:\Users\zhang\Desktop\inventory mapping'
 os.chdir(path)
 
 excel_name = r'.\Tmall SFS BZ received 0530.xlsx'
-open_wb = xlrd.open_workbook(excel_name)
-sheets = open_wb.sheet_names()
+wb = openpyxl.load_workbook(excel_name)
+sheets = wb.get_sheet_names()
+# open_wb = xlrd.open_workbook(excel_name)
+# sheets = open_wb.sheet_names()
 excel_all = pd.DataFrame()
 
 
 time_begin = time.time()
 
 for i in range(len(sheets)):
-    inv = pd.read_excel(excel_name,sheet_name=i,usecols = [3,4,5,6,7,9])
+    inv = pd.read_excel(excel_name,sheet_name=i,usecols = [3,4,5,6,7,9],engine='openpyxl')
+    # inv = pd.read_excel(excel_name,sheet_name=i,usecols = [3,4,5,6,7,9])
     excel_all = pd.concat([inv,excel_all])
     
 time_end = time.time()
