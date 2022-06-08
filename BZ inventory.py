@@ -19,7 +19,7 @@ os.chdir(path)
 
 excel_name = r'.\Tmall SFS BZ received 0530.xlsx'
 wb = openpyxl.load_workbook(excel_name)
-sheets = wb.get_sheet_names()
+sheets = wb.sheetnames
 # open_wb = xlrd.open_workbook(excel_name)
 # sheets = open_wb.sheet_names()
 excel_all = pd.DataFrame()
