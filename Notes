@@ -1,0 +1,13 @@
+pd.set_option("display.max_rows", None)
+pd.set_option("display.max_columns", None)
+
+import os
+os.getcwd()
+path = r'C:\Users\zhang\Desktop\inventory mapping'
+os.chdir(path)
+
+astype()方法存在着一些局限性，只要待转换的数据中存在非数字以外的字符，在使用astype()方法进行类型转换时就会出现错误，而to_numeric()函数的出现正好解决了这个问题。
+pandas.to_numeric(arg, errors='raise', downcast=None)
+arg：表示要转换的数据，可以是list、tuple、Series。
+errors：表示错误采取的处理方式。
+downcast:指定转换的类型,默认返回float64或int64
